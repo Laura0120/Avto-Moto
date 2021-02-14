@@ -1,0 +1,13 @@
+@mixin font($size: 16px, $line-height: 21.79px, $weight: normal, $color: $font-color) {
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}

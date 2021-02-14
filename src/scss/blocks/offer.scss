@@ -1,0 +1,78 @@
+.offer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.offer__title {
+  margin: 0 0 19px;
+
+  @include font(30px, 40.85px, bold);
+}
+.properties-list {
+  display: flex;
+  justify-content: space-between;
+  @include list-reset();
+  min-width: 308px;
+  height: 62px;
+  margin-bottom: 37px;
+}
+
+.properties-list__item {
+  padding-top: 40px;
+  background: url('/img/engine-type-icon.svg') center top no-repeat;
+  color: $font-opacity-color;
+
+  &:nth-child(2) {
+    background-image: url('/img/gearbox-icon.svg');
+  }
+  &:nth-child(3) {
+    background-image: url('/img/engine-volume-icon.svg');
+  }
+  &:nth-child(4) {
+    background-image: url('/img/engine-power-icon.svg');
+  }
+}
+
+.offer__price-tag {
+  display: flex;
+  align-items: center;
+  margin-bottom: 37px;
+}
+
+.offer__current-price {
+  @include font(35px, 47.66px, bold);
+  margin-right: 33px;
+}
+
+.offer__old-price {
+  position: relative;
+  @include font(20px, 23.44px, $color: $font-opacity-color);
+
+  &:before {
+    content: '';
+    border-bottom: 1px solid $font-opacity-color;
+    position: absolute;
+    bottom: 14px;
+    right: -3px;
+    width: 108%;
+    height: 50%;
+    transform: rotate(-7deg);
+  }
+}
+
+.offer__button {
+  text-transform: uppercase;
+  border: 1px solid $button-color;
+  padding: 12px;
+
+  &--application {
+    color: white;
+    background-color: $button-color;
+    margin-bottom: 10px;
+  }
+  &--credit {
+    color: $button-color;
+    background-color: white;
+  }
+}

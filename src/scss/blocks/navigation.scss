@@ -1,0 +1,19 @@
+.navigation--footer {
+  width: 100%;
+}
+
+.navigation--header {
+  width: 44.4%;
+}
+.navigation__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  @include list-reset();
+}
+
+.navigation__item a {
+  @include font($weight: bold);
+
+  text-decoration: none;
+}

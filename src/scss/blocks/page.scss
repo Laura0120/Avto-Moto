@@ -1,0 +1,28 @@
+.page__header,
+.page__footer {
+  background-color: $background-color;
+}
+
+.page-header__wrapper,
+.page-content__wrapper,
+.page-footer__wrapper {
+  display: flex;
+
+  max-width: $desktop-width;
+  margin: 0 auto;
+}
+
+.page-header__wrapper {
+  justify-content: space-between;
+  align-items: center;
+  min-height: 84px;
+}
+
+.page-content__wrapper {
+  padding: 74px 0;
+  flex-wrap: wrap;
+}
+.page-footer__wrapper {
+  align-items: center;
+  min-height: 82px;
+}
