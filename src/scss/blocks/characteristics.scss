@@ -1,0 +1,23 @@
+.characteristics {
+  width: 565px;
+  border-collapse: collapse;
+}
+
+.characteristics__item {
+  height: 50px;
+  border-bottom: 1px solid $button-border-color;
+}
+
+.characteristics th {
+  width: 50%;
+}
+
+.characteristics__parameter {
+  text-align: start;
+  @include font();
+}
+
+.characteristics__vatue {
+  text-align: end;
+  @include font($color: #000);
+}

@@ -1,0 +1,19 @@
+.about-product__tabs {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.about-product__tab-item {
+  width: 195px;
+  height: 50px;
+  @include font(20px, 27.24px);
+  text-decoration: none;
+  text-align: center;
+  padding-top: 10px;
+  border: 1px solid $button-border-color;
+
+  &--active {
+    background-color: $active-color;
+    color: white;
+  }
+}

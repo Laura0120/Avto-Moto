@@ -1,5 +1,6 @@
 .slider {
   padding-top: 16px;
+  margin-bottom: 90px;
 }
 
 .slider__image-active-wrapper {
@@ -10,6 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-width: 490px;
 }
 
 .slider__preview {
@@ -20,7 +22,7 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  border: 1px solid #d7d9df;
+  border: 1px solid $button-border-color;
   background: url('/img/arrow-icon.svg') center no-repeat white;
 
   &:disabled {

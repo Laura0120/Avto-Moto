@@ -1,0 +1,15 @@
+.button {
+  padding: 16.5px 20px;
+  border: 1px solid $active-color;
+
+  @include font(14px, 19px, bold, $active-color);
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  background-color: white;
+
+  &--active {
+    background-color: $active-color;
+    color: white;
+  }
+}

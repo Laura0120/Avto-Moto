@@ -5,7 +5,4 @@ import App from './js/components/app';
 
 require('./scss/style.scss');
 
-ReactDom.render(
-    <App />,
-    document.querySelector(`#root`)
-);
+ReactDom.render(<App />, document.querySelector(`#root`));
