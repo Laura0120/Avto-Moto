@@ -6,11 +6,9 @@ import { RATING } from '../const';
 const ModalAddReveiw = (props) => {
   const { setIsModalOpen, addReview } = props;
 
-  const authorRef = useRef();
-  const reviewTextRef = useRef();
-
   const [currentReview, setCurrentReview] = useState({});
-  const [validity, setValidity] = useState(false);
+  const [authorValid, setAuthorValid] = useState(true);
+  const [reviewTextValid, setReviewTextValid] = useState(true);
 
   useEffect(() => {
     const savedCurrentReview = localStorage.getItem('savedCurrentReview');
@@ -21,12 +19,6 @@ const ModalAddReveiw = (props) => {
   useEffect(() => {
     localStorage.setItem(`savedCurrentReview`, JSON.stringify(currentReview));
   }, [currentReview]);
-
-  useEffect(() => {
-    setValidity(
-      authorRef.current.validity.valid && reviewTextRef.current.validity.valid
-    );
-  }, [currentReview.author, currentReview.reviewText]);
 
   const onClose = () => {
     setIsModalOpen(false);
@@ -61,9 +53,14 @@ const ModalAddReveiw = (props) => {
         className="modal__form form-add-review"
         onSubmit={(evt) => {
           evt.preventDefault();
-          if (!validity) {
-            return;
+          if (!currentReview.author) {
+            setAuthorValid(false);
+            return
           }
+          if(!currentReview.reviewText){
+          setReviewTextValid(false)
+          return
+        }
           addReview({
             ...currentReview,
             time: new Date(),
@@ -80,23 +77,22 @@ const ModalAddReveiw = (props) => {
           onClick={onClose}
         ></button>
         <div className="form-add-review__wrapper">
-          <input
-            className="form-add-review__input form-add-review__input--author"
-            id="author"
-            type="text"
-            name="author"
-            placeholder="Имя"
-            value={currentReview.author}
-            onChange={(evt) =>
-              setCurrentReview({ ...currentReview, author: evt.target.value })
-            }
-            autoFocus
-            required
-            ref={authorRef}
-          />
-          <label htmlFor="author" className="visually-hidden">
-            Ваше имя
-          </label>
+            <input
+              className={`form-add-review__input form-add-review__input--author ${!authorValid ? `form-add-review__required` : ``}`}
+              id="author"
+              type="text"
+              name="author"
+              placeholder="Имя"
+              value={currentReview.author}
+              onChange={(evt) =>{
+                setAuthorValid(true)
+                setCurrentReview({ ...currentReview, author: evt.target.value })}
+              }
+              autoFocus
+            />
+            <label htmlFor="author" className="visually-hidden">
+              Ваше имя
+            </label>
           <input
             className="form-add-review__input form-add-review__input--dignity"
             id="dignity"
@@ -171,19 +167,18 @@ const ModalAddReveiw = (props) => {
             ))}
           </fieldset>
           <textarea
-            className="form-add-review__review-text"
+            className={`form-add-review__review-text ${!reviewTextValid ? `form-add-review__required` : ``}`}
             id="review-text"
             name="review-text"
             placeholder="Комментарий"
             value={currentReview.reviewText}
-            onChange={(evt) =>
+            onChange={(evt) =>{
+              setReviewTextValid(true);
               setCurrentReview({
                 ...currentReview,
                 reviewText: evt.target.value,
-              })
+              })}
             }
-            required
-            ref={reviewTextRef}
           ></textarea>
           <label htmlFor="review-text" className="visually-hidden">
             Комментарий

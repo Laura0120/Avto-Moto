@@ -1,3 +1,7 @@
+export const MS_IN_ONE_MINUTE= 1000 * 60;
+export const MS_IN_ONE_HOUR= MS_IN_ONE_MINUTE * 60;
+export const MS_IN_ONE_DAY = MS_IN_ONE_HOUR * 24;
+
 export const IMGES_ACTIVE_NEW_MODEL = [
   ['/img/car-1.webp', '/img/car-1.jpg'],
   ['/img/car-2.webp', '/img/car-2.jpg'],

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import moment from 'moment';
+// import moment from 'moment';
+// import 'moment/locale/ru';
+
 import PropTypes from 'prop-types';
 
 import ModalAddReveiw from './modal-add-review';
 
-import { REVIEWS, RATING, MIN_RATING_FOR_RECOMMENDATION } from './../const';
+import { REVIEWS, RATING, MIN_RATING_FOR_RECOMMENDATION, MS_IN_ONE_DAY, MS_IN_ONE_MINUTE, MS_IN_ONE_HOUR} from './../const';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -24,16 +26,41 @@ const Reviews = () => {
     setReviews([...reviews, review]);
   };
 
-  const getDateForReview = (date) => {
-    moment.locale('ru');
-    const dateObj = moment(date);
+  // const getDateForReview = (date) => {
+  //   moment.locale('ru');
+  //   const dateObj = moment(date);
 
-    const reviewDate =
-      moment().utc().diff(dateObj, `days`) >= 2
-        ? dateObj.format(`YYYY/MM/DD hh:mm`)
-        : dateObj.fromNow();
-    return reviewDate;
-  };
+  //   const reviewDate =
+  //     moment().utc().diff(dateObj, `days`) >= 2
+  //       ? dateObj.format(`YYYY/MM/DD hh:mm`)
+  //       : dateObj.fromNow();
+  //   return reviewDate;
+  // };
+
+  const getDateReview = (date) => {
+    const elapsedTime = new Date() - new Date(date);
+    var options = {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric'
+    };
+
+    if (elapsedTime < MS_IN_ONE_DAY) {
+          switch (true) {
+        case elapsedTime < MS_IN_ONE_MINUTE:
+          return `несколько секунд назад`;
+        case elapsedTime >= MS_IN_ONE_MINUTE && elapsedTime < MS_IN_ONE_HOUR:
+          return `${Math.floor(elapsedTime / MS_IN_ONE_MINUTE)} минут назад`;
+        case elapsedTime >= MS_IN_ONE_HOUR:
+          return `${Math.floor(elapsedTime / MS_IN_ONE_HOUR)} час назад`;
+        default:
+          return ``;
+      }
+    } else {
+      return new Date(date).toLocaleString("ru", options) 
+    }
+  }
+ 
 
   const onAddReviewClick = (evt) => {
     evt.preventDefault();
@@ -94,7 +121,7 @@ const Reviews = () => {
                 </span>
               </div>
               <div className="review__wrapper">
-                <time className="review__time">{getDateForReview(time)}</time>
+                <time className="review__time">{getDateReview(time)}</time>
                 <a href="#" className="review__response">
                   Ответить
                 </a>
@@ -103,11 +130,7 @@ const Reviews = () => {
           )
         )}
       </section>
-      {isModalOpen ? (
-        <ModalAddReveiw setIsModalOpen={setIsModalOpen} addReview={addReview} />
-      ) : (
-        ''
-      )}
+      {isModalOpen && <ModalAddReveiw setIsModalOpen={setIsModalOpen} addReview={addReview} />}
     </React.Fragment>
   );
 };
