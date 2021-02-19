@@ -11,7 +11,11 @@ const Slider = () => {
       <h2 className="visually-hidden">Сладер с фото автомабиля</h2>
       <div className="slider__image-active-wrapper">
         <picture>
-          <source type="image/webp" media="(min-width: 1024px)" src={imgWebp} />
+          <source
+            type="image/webp"
+            media="(min-width: 1024px)"
+            srcSet={imgWebp}
+          />
           <img
             src={imgJpg}
             loading="lazy"
@@ -29,24 +33,15 @@ const Slider = () => {
           onClick={() => setIndexImg(indexImgActive - 1)}
         ></button>
         <div className="slider__preview">
-          <img
-            src={IMGES_PREVIEW_NEW_MODEL[0]}
-            alt="Машина, фото спереди"
-            width="128"
-            height="80"
-          />
-          <img
-            src={IMGES_PREVIEW_NEW_MODEL[1]}
-            alt="Место водителя в машине"
-            width="128"
-            height="80"
-          />
-          <img
-            src={IMGES_PREVIEW_NEW_MODEL[2]}
-            alt="Cgbljvtnh"
-            width="128"
-            height="80"
-          />
+          {IMGES_PREVIEW_NEW_MODEL.map((img, index) => (
+            <img
+              src={img}
+              alt="фото машины"
+              width="128"
+              height="80"
+              key={index}
+            />
+          ))}
         </div>
 
         <button

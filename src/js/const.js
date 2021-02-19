@@ -1,5 +1,5 @@
-export const MS_IN_ONE_MINUTE= 1000 * 60;
-export const MS_IN_ONE_HOUR= MS_IN_ONE_MINUTE * 60;
+export const MS_IN_ONE_MINUTE = 1000 * 60;
+export const MS_IN_ONE_HOUR = MS_IN_ONE_MINUTE * 60;
 export const MS_IN_ONE_DAY = MS_IN_ONE_HOUR * 24;
 
 export const IMGES_ACTIVE_NEW_MODEL = [
@@ -12,11 +12,18 @@ export const IMGES_PREVIEW_NEW_MODEL = [
   '/img/car-2-preview.jpg',
   '/img/car-3-preview.jpg',
 ];
-export const TABS_NAME = {
-  CHARACTERISTICS: `Характеристики`,
-  REVIEW: `Отзывы`,
-  CONTACTS: `Контакты`,
-};
+
+export const TABS_NAME = [`Характеристики`, `Отзывы`, `Контакты`];
+export const NAV_HEADER = [`Автомобили`, `Контакты`, `Услуги`, `Вакансии`];
+export const NAV_FOOTER = [
+  `Корпоративным клиентам`,
+  `Клиентам`,
+  `Аренда авто`,
+  `Каршеринг`,
+  `Как продать авто`,
+  `Traid-in`,
+  `Test draiv`,
+];
 
 export const RATING = [1, 2, 3, 4, 5];
 export const MIN_RATING_FOR_RECOMMENDATION = 3;
@@ -41,3 +48,11 @@ export const REVIEWS = [
     time: new Date(),
   },
 ];
+
+export const REVIEW_TEMPLATE = {
+  author: ``,
+  dignity: ``,
+  limitations: ``,
+  rating: 0,
+  reviewText: ``,
+};

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { TABS_NAME } from '../const';
 import Characteristics from '../components/characteristics';
@@ -10,11 +11,11 @@ const AboutProduct = (props) => {
 
   const getContentOnActiveTab = () => {
     switch (currentTab) {
-      case TABS_NAME.CHARACTERISTICS:
+      case TABS_NAME[0]:
         return <Characteristics />;
-      case TABS_NAME.REVIEW:
+      case TABS_NAME[1]:
         return <Reviews />;
-      case TABS_NAME.CONTACTS:
+      case TABS_NAME[2]:
         return <Contacts />;
       default:
         return ``;
@@ -24,45 +25,27 @@ const AboutProduct = (props) => {
   return (
     <div className="about-product">
       <div className="about-product__tabs">
-        <a
-          href="#"
-          className={`about-product__tab-item ${
-            currentTab === TABS_NAME.CHARACTERISTICS
-              ? `about-product__tab-item--active`
-              : ``
-          }`}
-          onClick={onChangeTab}
-        >
-          {TABS_NAME.CHARACTERISTICS}
-        </a>
-        <a
-          href="#"
-          className={`about-product__tab-item ${
-            currentTab === TABS_NAME.REVIEW
-              ? `about-product__tab-item--active`
-              : ``
-          }`}
-          onClick={onChangeTab}
-        >
-          {TABS_NAME.REVIEW}
-        </a>
-        <a
-          href="#"
-          className={`about-product__tab-item ${
-            currentTab === TABS_NAME.CONTACTS
-              ? `about-product__tab-item--active`
-              : ``
-          }`}
-          onClick={onChangeTab}
-        >
-          {TABS_NAME.CONTACTS}
-        </a>
+        {TABS_NAME.map((tab, index) => (
+          <a
+            href="#"
+            className={`about-product__tab-item ${
+              currentTab === tab ? `about-product__tab-item--active` : ``
+            }`}
+            key={index}
+            onClick={onChangeTab}
+          >
+            {tab}
+          </a>
+        ))}
       </div>
       {getContentOnActiveTab()}
     </div>
   );
 };
 
-AboutProduct.propTypes = {};
+AboutProduct.propTypes = {
+  currentTab: PropTypes.string.isRequired,
+  onChangeTab: PropTypes.func.isRequired,
+};
 
 export default AboutProduct;

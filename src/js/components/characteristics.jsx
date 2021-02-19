@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const Characteristics = () => {
   return (
@@ -44,7 +43,5 @@ const Characteristics = () => {
     </div>
   );
 };
-
-Characteristics.propTypes = {};
 
 export default Characteristics;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const Contacts = () => {
   return (
@@ -33,7 +32,5 @@ const Contacts = () => {
     </div>
   );
 };
-
-Contacts.propTypes = {};
 
 export default Contacts;

@@ -24,6 +24,4 @@ const Offer = () => {
   );
 };
 
-Offer.propTypes = {};
-
 export default Offer;

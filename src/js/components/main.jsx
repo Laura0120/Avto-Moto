@@ -1,13 +1,13 @@
 import React from 'react';
 
 import Logo from './logo';
-import NavigationHeader from './navigation-header';
-import NavigationFooter from './navigation-footer';
+import Navigation from './navigation';
 import Slider from './slider';
 import Offer from './offer';
 import withTabs from '../hocs/with-tabs';
 import AboutProduct from './about-product';
 
+import { NAV_HEADER, NAV_FOOTER } from '../const';
 const AboutProductWrapped = withTabs(AboutProduct);
 
 const Main = () => {
@@ -16,7 +16,7 @@ const Main = () => {
       <header className="page__header page-header">
         <div className="page-header__wrapper">
           <Logo />
-          <NavigationHeader />
+          <Navigation navList={NAV_HEADER} modifier={`--header`} />
         </div>
       </header>
       <main className="page__content page-content">
@@ -29,7 +29,7 @@ const Main = () => {
       </main>
       <footer className="page__footer page-footer">
         <div className="page-footer__wrapper">
-          <NavigationFooter />
+          <Navigation navList={NAV_FOOTER} modifier={`--footer`} />
         </div>
       </footer>
     </React.Fragment>

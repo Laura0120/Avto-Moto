@@ -30,40 +30,35 @@
 .review__dignity,
 .review__limitations {
   padding-left: 19px;
-}
-.review__quote dl {
   position: relative;
-  margin: 0 0 13px;
-
   &:before {
     content: '';
     position: absolute;
-    top: 10px;
     left: 0;
-    width: 10.5px;
-    height: 50%;
-    border-top: 1px solid $active-color;
+    width: 9px;
+    height: 21px;
   }
+}
+
+.review__dignity {
+  &::before {
+    top: 6px;
+    background: url('/img/dignity-icon.svg') no-repeat;
+  }
+}
+.review__limitations {
+  &::before {
+    top: 10px;
+    background: url('/img/limitations-icon.svg') no-repeat;
+  }
+}
+.review__quote dl {
+  margin: 0 0 13px;
 }
 .review__quote dt {
   font-weight: bold;
 }
 
-.review__dignity {
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0.2px;
-    left: -9px;
-    width: 10px;
-    height: 50%;
-    transform: rotate(90deg);
-    border-top: 1px solid $active-color;
-  }
-}
-
-.review__limitations dt {
-}
 .review__quote dd {
   margin: 0;
 }

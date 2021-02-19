@@ -4,7 +4,7 @@ import { TABS_NAME } from '../const';
 
 const withTabs = (Component) => {
   const WithTabs = (props) => {
-    const [currentTab, setCurrentTab] = useState(TABS_NAME.CHARACTERISTICS);
+    const [currentTab, setCurrentTab] = useState(TABS_NAME[0]);
 
     return (
       <Component

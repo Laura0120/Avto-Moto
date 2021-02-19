@@ -1,18 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { RATING } from '../const';
+
+import { RATING, REVIEW_TEMPLATE } from '../const';
 
 const ModalAddReveiw = (props) => {
   const { setIsModalOpen, addReview } = props;
 
-  const [currentReview, setCurrentReview] = useState({});
+  const [currentReview, setCurrentReview] = useState(REVIEW_TEMPLATE);
   const [authorValid, setAuthorValid] = useState(true);
   const [reviewTextValid, setReviewTextValid] = useState(true);
 
   useEffect(() => {
     const savedCurrentReview = localStorage.getItem('savedCurrentReview');
-    const review = savedCurrentReview ? JSON.parse(savedCurrentReview) : {};
+    const review = savedCurrentReview
+      ? JSON.parse(savedCurrentReview)
+      : REVIEW_TEMPLATE;
     setCurrentReview(review);
   }, []);
 
@@ -55,17 +57,20 @@ const ModalAddReveiw = (props) => {
           evt.preventDefault();
           if (!currentReview.author) {
             setAuthorValid(false);
-            return
+            return;
           }
-          if(!currentReview.reviewText){
-          setReviewTextValid(false)
-          return
-        }
+          if (!currentReview.reviewText) {
+            setReviewTextValid(false);
+            return;
+          }
           addReview({
             ...currentReview,
             time: new Date(),
           });
-          localStorage.setItem(`savedCurrentReview`, JSON.stringify({}));
+          localStorage.setItem(
+            `savedCurrentReview`,
+            JSON.stringify(REVIEW_TEMPLATE)
+          );
           onClose();
         }}
       >
@@ -77,22 +82,35 @@ const ModalAddReveiw = (props) => {
           onClick={onClose}
         ></button>
         <div className="form-add-review__wrapper">
+          <div
+            className={`form-add-review__required-wrapper ${
+              !authorValid
+                ? `form-add-review__required-wrapper--error-message`
+                : ``
+            }`}
+          >
             <input
-              className={`form-add-review__input form-add-review__input--author ${!authorValid ? `form-add-review__required` : ``}`}
+              className={`form-add-review__input form-add-review__input--author ${
+                !authorValid ? `form-add-review__required` : ``
+              }`}
               id="author"
               type="text"
               name="author"
               placeholder="Имя"
               value={currentReview.author}
-              onChange={(evt) =>{
-                setAuthorValid(true)
-                setCurrentReview({ ...currentReview, author: evt.target.value })}
-              }
+              onChange={(evt) => {
+                setAuthorValid(true);
+                setCurrentReview({
+                  ...currentReview,
+                  author: evt.target.value,
+                });
+              }}
               autoFocus
             />
             <label htmlFor="author" className="visually-hidden">
               Ваше имя
             </label>
+          </div>
           <input
             className="form-add-review__input form-add-review__input--dignity"
             id="dignity"
@@ -166,23 +184,33 @@ const ModalAddReveiw = (props) => {
               </React.Fragment>
             ))}
           </fieldset>
-          <textarea
-            className={`form-add-review__review-text ${!reviewTextValid ? `form-add-review__required` : ``}`}
-            id="review-text"
-            name="review-text"
-            placeholder="Комментарий"
-            value={currentReview.reviewText}
-            onChange={(evt) =>{
-              setReviewTextValid(true);
-              setCurrentReview({
-                ...currentReview,
-                reviewText: evt.target.value,
-              })}
-            }
-          ></textarea>
-          <label htmlFor="review-text" className="visually-hidden">
-            Комментарий
-          </label>
+          <div
+            className={`form-add-review__required-wrapper ${
+              !reviewTextValid
+                ? `form-add-review__required-wrapper--error-message`
+                : ``
+            }`}
+          >
+            <textarea
+              className={`form-add-review__review-text ${
+                !reviewTextValid ? `form-add-review__required` : ``
+              }`}
+              id="review-text"
+              name="review-text"
+              placeholder="Комментарий"
+              value={currentReview.reviewText}
+              onChange={(evt) => {
+                setReviewTextValid(true);
+                setCurrentReview({
+                  ...currentReview,
+                  reviewText: evt.target.value,
+                });
+              }}
+            ></textarea>
+            <label htmlFor="review-text" className="visually-hidden">
+              Комментарий
+            </label>
+          </div>
         </div>
         <button
           type="submit"
@@ -195,6 +223,9 @@ const ModalAddReveiw = (props) => {
   );
 };
 
-ModalAddReveiw.propTypes = {};
+ModalAddReveiw.propTypes = {
+  setIsModalOpen: PropTypes.func.isRequired,
+  addReview: PropTypes.func.isRequired,
+};
 
 export default ModalAddReveiw;

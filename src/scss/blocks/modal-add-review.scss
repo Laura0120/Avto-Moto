@@ -83,19 +83,6 @@
   &:not(:nth-last-of-type(1)) {
     margin-bottom: 16px;
   }
-
-  &--author {
-    &::after {
-      content: '*';
-      position: absolute;
-      top: 9px;
-      left: 12px;
-      z-index: 5;
-      width: 6px;
-      height: 6px;
-      color: $active-color;
-    }
-  }
 }
 
 .form-add-review__rating {
@@ -109,7 +96,6 @@
 }
 
 .form-add-review__review-text {
-  position: relative;
   width: 300px;
   height: 118px;
   resize: none;
@@ -135,13 +121,28 @@
 .form-add-review__required {
   position: relative;
   border-color: $active-color;
+}
 
-  &::before {
-    content: 'Пожалуйста, заполните поле';
+.form-add-review__required-wrapper {
+  position: relative;
+
+  &::after {
+    content: '*';
     position: absolute;
-    top: -23px;
-    left: 0;
-    color: $active-color;
-    z-index: 5;
+    top: 9px;
+    left: 12px;
+    @include font(17px, 19px, normal, $active-color);
+  }
+
+  &--error-message {
+    &::before {
+      content: 'Пожалуйста, заполните поле';
+      font-family: 'Open Sans';
+      @include font(14px, 19px, normal, $active-color);
+
+      position: absolute;
+      top: -23px;
+      left: 0;
+    }
   }
 }

@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react';
 // import moment from 'moment';
 // import 'moment/locale/ru';
 
-import PropTypes from 'prop-types';
-
 import ModalAddReveiw from './modal-add-review';
 
-import { REVIEWS, RATING, MIN_RATING_FOR_RECOMMENDATION, MS_IN_ONE_DAY, MS_IN_ONE_MINUTE, MS_IN_ONE_HOUR} from './../const';
+import {
+  REVIEWS,
+  RATING,
+  MIN_RATING_FOR_RECOMMENDATION,
+  MS_IN_ONE_DAY,
+  MS_IN_ONE_MINUTE,
+  MS_IN_ONE_HOUR,
+} from './../const';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -42,11 +47,11 @@ const Reviews = () => {
     var options = {
       year: 'numeric',
       month: 'numeric',
-      day: 'numeric'
+      day: 'numeric',
     };
 
     if (elapsedTime < MS_IN_ONE_DAY) {
-          switch (true) {
+      switch (true) {
         case elapsedTime < MS_IN_ONE_MINUTE:
           return `несколько секунд назад`;
         case elapsedTime >= MS_IN_ONE_MINUTE && elapsedTime < MS_IN_ONE_HOUR:
@@ -57,10 +62,22 @@ const Reviews = () => {
           return ``;
       }
     } else {
-      return new Date(date).toLocaleString("ru", options) 
+      return new Date(date).toLocaleString('ru', options);
     }
-  }
- 
+  };
+
+  const getRecommendation = (rating) => {
+    switch (true) {
+      case rating === 0:
+        return '';
+      case rating < MIN_RATING_FOR_RECOMMENDATION:
+        return `Не советует`;
+      case rating >= MIN_RATING_FOR_RECOMMENDATION:
+        return `Советует`;
+      default:
+        return ``;
+    }
+  };
 
   const onAddReviewClick = (evt) => {
     evt.preventDefault();
@@ -115,9 +132,7 @@ const Reviews = () => {
                   ))}
                 </div>
                 <span className="review__recommendation">
-                  {rating < MIN_RATING_FOR_RECOMMENDATION
-                    ? `Не советует`
-                    : `Советует`}
+                  {getRecommendation(rating)}
                 </span>
               </div>
               <div className="review__wrapper">
@@ -130,11 +145,11 @@ const Reviews = () => {
           )
         )}
       </section>
-      {isModalOpen && <ModalAddReveiw setIsModalOpen={setIsModalOpen} addReview={addReview} />}
+      {isModalOpen && (
+        <ModalAddReveiw setIsModalOpen={setIsModalOpen} addReview={addReview} />
+      )}
     </React.Fragment>
   );
 };
-
-Reviews.propTypes = {};
 
 export default Reviews;
