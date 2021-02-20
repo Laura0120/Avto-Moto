@@ -145,4 +145,8 @@
       left: 0;
     }
   }
+
+  &:nth-of-type(1) {
+    margin-bottom: 16px;
+  }
 }

@@ -118,8 +118,8 @@ const Reviews = () => {
               <div className="review__wrapper">
                 <div
                   className="review__rating"
-                  aria-label={`рейтинг ${rating}`}
                 >
+                  <h3 className='visually-hidden'>рейтинг {rating}</h3>
                   {RATING.map((star) => (
                     <span
                       className={`review__rating-star ${
@@ -136,7 +136,7 @@ const Reviews = () => {
                 </span>
               </div>
               <div className="review__wrapper">
-                <time className="review__time">{getDateReview(time)}</time>
+                <span className="review__time">{getDateReview(time)}</span>
                 <a href="#" className="review__response">
                   Ответить
                 </a>
