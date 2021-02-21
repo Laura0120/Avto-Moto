@@ -8,8 +8,18 @@
   text-align: center;
   background-color: white;
 
+  &:hover {
+    background-color: $active-color;
+    color: white;
+  }
+
   &--active {
     background-color: $active-color;
     color: white;
+
+    &:hover {
+      background-color: #bd0c21;
+      color: white;
+    }
   }
 }
