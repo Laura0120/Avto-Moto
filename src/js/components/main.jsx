@@ -20,12 +20,12 @@ const Main = () => {
         </div>
       </header>
       <main className="page-content">
+        <h1 className="visually-hidden">Avto-Moto</h1>
         <div className="page-content__wrapper">
-          <h1 className="visually-hidden">Avto-Moto</h1>
           <Slider />
           <Offer />
-          <AboutProductWrapped />
         </div>
+        <AboutProductWrapped />
       </main>
       <footer className="page-footer">
         <div className="page-footer__wrapper">

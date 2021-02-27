@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { RATING, REVIEW_TEMPLATE } from '../const';
 
 const ModalAddReveiw = (props) => {
-  const { setIsModalOpen, addReview } = props;
+  const { setIsModalOpen, addReview, disablePageScrolling } = props;
 
   const [currentReview, setCurrentReview] = useState(REVIEW_TEMPLATE);
   const [authorValid, setAuthorValid] = useState(true);
@@ -16,6 +16,7 @@ const ModalAddReveiw = (props) => {
       ? JSON.parse(savedCurrentReview)
       : REVIEW_TEMPLATE;
     setCurrentReview(review);
+    disablePageScrolling();
   }, []);
 
   useEffect(() => {
@@ -23,6 +24,7 @@ const ModalAddReveiw = (props) => {
   }, [currentReview]);
 
   const onClose = () => {
+    document.body.classList.remove('no-scrolling');
     setIsModalOpen(false);
     document.removeEventListener('click', onOverlayClick);
     document.removeEventListener('keydown', onEcsDown);
@@ -226,6 +228,7 @@ const ModalAddReveiw = (props) => {
 ModalAddReveiw.propTypes = {
   setIsModalOpen: PropTypes.func.isRequired,
   addReview: PropTypes.func.isRequired,
+  disablePageScrolling: PropTypes.func.isRequired,
 };
 
 export default ModalAddReveiw;

@@ -6,6 +6,16 @@ const Slider = () => {
   const [indexImgActive, setIndexImg] = useState(0);
   const [imgWebp, imgJpg] = IMGES_ACTIVE_NEW_MODEL[indexImgActive];
 
+  const onScrollForward = () => {
+    if (indexImgActive < 2) {
+      setIndexImg(indexImgActive + 1);
+    }
+  };
+  const onScrollBack = () => {
+    if (indexImgActive > 0) {
+      setIndexImg(indexImgActive - 1);
+    }
+  };
   return (
     <section className="page-content__slider slider">
       <h2 className="visually-hidden">Сладер с фото автомабиля</h2>
@@ -28,9 +38,11 @@ const Slider = () => {
       <div className="slider__wrapper">
         <button
           type="button"
-          className="slider__button"
-          disabled={indexImgActive === 0}
-          onClick={() => setIndexImg(indexImgActive - 1)}
+          className={`slider__button ${
+            indexImgActive === 0 ? `slider__button--disabled` : ``
+          }`}
+          aria-label="листать назад"
+          onClick={onScrollBack}
         ></button>
         <div className="slider__preview">
           {IMGES_PREVIEW_NEW_MODEL.map((img, index) => (
@@ -43,12 +55,13 @@ const Slider = () => {
             />
           ))}
         </div>
-
         <button
           type="button"
-          className="slider__button"
-          disabled={indexImgActive === 2}
-          onClick={() => setIndexImg(indexImgActive + 1)}
+          className={`slider__button ${
+            indexImgActive === 2 ? `slider__button--disabled` : ``
+          }`}
+          aria-label="листать вперёд"
+          onClick={onScrollForward}
         ></button>
       </div>
     </section>

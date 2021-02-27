@@ -31,6 +31,10 @@ const Reviews = () => {
     setReviews([...reviews, review]);
   };
 
+  const disablePageScrolling = () => {
+    document.body.classList.add('no-scrolling');
+  };
+
   // const getDateForReview = (date) => {
   //   moment.locale('ru');
   //   const dateObj = moment(date);
@@ -116,10 +120,8 @@ const Reviews = () => {
                 </dl>
               </blockquote>
               <div className="review__wrapper">
-                <div
-                  className="review__rating"
-                >
-                  <h3 className='visually-hidden'>рейтинг {rating}</h3>
+                <div className="review__rating">
+                  <h3 className="visually-hidden">рейтинг {rating}</h3>
                   {RATING.map((star) => (
                     <span
                       className={`review__rating-star ${
@@ -146,7 +148,11 @@ const Reviews = () => {
         )}
       </section>
       {isModalOpen && (
-        <ModalAddReveiw setIsModalOpen={setIsModalOpen} addReview={addReview} />
+        <ModalAddReveiw
+          setIsModalOpen={setIsModalOpen}
+          addReview={addReview}
+          disablePageScrolling={disablePageScrolling}
+        />
       )}
     </React.Fragment>
   );

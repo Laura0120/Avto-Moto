@@ -8,9 +8,7 @@ const Navigation = (props) => {
       <ul className="navigation__list">
         {navList.map((item, index) => (
           <li className="navigation__item" key={index}>
-            <a href="#" >
-              {item}
-            </a>
+            <a href="#">{item}</a>
           </li>
         ))}
       </ul>

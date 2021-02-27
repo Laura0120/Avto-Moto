@@ -3,20 +3,20 @@
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 90px;
+  width: 337px;
 }
 
 .offer__title {
-  margin: 0 0 19px;
+  margin: 0 0 21px;
 
   @include font(30px, 40.85px, bold);
 }
 .properties-list {
   display: flex;
-  justify-content: space-between;
   @include list-reset();
-  min-width: 308px;
   height: 62px;
-  margin-bottom: 37px;
+  padding-left: 8px;
+  margin-bottom: 38px;
 }
 
 .properties-list__item {
@@ -28,10 +28,14 @@
     background-image: url('/img/gearbox-icon.svg');
   }
   &:nth-child(3) {
-    background-image: url('/img/engine-volume-icon.svg');
+    background-image: url('/img/engine-power-icon.svg');
   }
   &:nth-child(4) {
-    background-image: url('/img/engine-power-icon.svg');
+    background-image: url('/img/engine-volume-icon.svg');
+  }
+
+  &:not(:nth-last-child(1)) {
+    margin-right: 18px;
   }
 }
 
@@ -63,6 +67,11 @@
   }
 }
 
-.offer .button--active {
-  margin-bottom: 10px;
+.offer__button {
+  &--application {
+    margin-bottom: 17px;
+  }
+  &--credit {
+    padding: 16px 34px;
+  }
 }

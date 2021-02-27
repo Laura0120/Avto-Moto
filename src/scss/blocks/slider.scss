@@ -25,7 +25,7 @@
   border: 1px solid $button-border-color;
   background: url('/img/arrow-icon.svg') center no-repeat white;
 
-  &:disabled {
+  &--disabled {
     opacity: 50%;
   }
   &:nth-child(1) {
@@ -33,10 +33,15 @@
   }
 }
 
+@media (min-width: $content-wrapper-width) {
+  .slider {
+    margin-right: 54px;
+  }
+}
+
 @media (min-width: $rubber-width) {
   .slider {
     width: 600px;
-    margin-right: 54px;
   }
 
   .slider__image-active-wrapper {
