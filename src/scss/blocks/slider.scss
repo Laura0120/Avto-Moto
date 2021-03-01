@@ -26,8 +26,9 @@
   background: url('/img/arrow-icon.svg') center no-repeat white;
 
   &--disabled {
-    opacity: 50%;
+    opacity: 0.5;
   }
+
   &:nth-child(1) {
     transform: rotate(180deg);
   }
