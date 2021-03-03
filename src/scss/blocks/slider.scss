@@ -24,6 +24,7 @@
   border-radius: 50%;
   border: 1px solid $button-border-color;
   background: url('/img/arrow-icon.svg') center no-repeat white;
+  cursor: pointer;
 
   &--disabled {
     opacity: 0.5;

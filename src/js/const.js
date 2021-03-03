@@ -3,9 +3,9 @@ export const MS_IN_ONE_HOUR = MS_IN_ONE_MINUTE * 60;
 export const MS_IN_ONE_DAY = MS_IN_ONE_HOUR * 24;
 
 export const IMGES_ACTIVE_NEW_MODEL = [
-  ['/img/car-1.webp', '/img/car-1.jpg'],
-  ['/img/car-2.webp', '/img/car-2.jpg'],
-  ['/img/car-3.webp', '/img/car-3.jpg'],
+  [['/img/car-1-desctop.webp', '/img/car-1-desctop.jpg'], ['/img/car-1-tablet.webp', '/img/car-1-tablet.jpg'], ['/img/car-1-mobile.webp', '/img/car-1-mobile.jpg']],
+  [['/img/car-2-desctop.webp', '/img/car-2-desctop.jpg'], ['/img/car-2-tablet.webp', '/img/car-2-tablet.jpg']],
+  [['/img/car-3-desctop.webp', '/img/car-3-desctop.jpg'], ['/img/car-3-tablet.webp', '/img/car-3-tablet.jpg']]
 ];
 export const IMGES_PREVIEW_NEW_MODEL = [
   '/img/car-1-preview.jpg',
