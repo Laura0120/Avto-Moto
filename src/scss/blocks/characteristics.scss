@@ -1,15 +1,19 @@
 .characteristics {
-  width: 565px;
+  width: 100%;
   border-collapse: collapse;
 }
 
 .characteristics__item {
-  height: 50px;
   border-bottom: 1px solid $button-border-color;
 }
 
+.characteristics__item {
+  height: 50px;
+}
+
 .characteristics th {
-  width: 50%;
+  padding-top: 28px;
+  vertical-align: middle;
 }
 
 .characteristics__parameter {
@@ -20,4 +24,42 @@
 .characteristics__vatue {
   text-align: end;
   @include font($color: #000);
+}
+
+@media (max-width: $not-desktop-width) {
+  .characteristics th {
+    padding-bottom: 10px;
+    width: 40%;
+    font-family: Proxima Nova;
+  }
+
+  .characteristics__parameter {
+    @include font(16px, 19px);
+  }
+  .characteristics__vatue {
+    @include font(16px, 19px, bold, #000);
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .characteristics th {
+    padding-top: 25px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .characteristics {
+    width: 565px;
+  }
+
+  .characteristics th {
+    padding-top: 0;
+
+    &:nth-child(1) {
+      width: 60%;
+    }
+    &:nth-child(2) {
+      width: 40%;
+    }
+  }
 }

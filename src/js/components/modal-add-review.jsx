@@ -148,43 +148,45 @@ const ModalAddReveiw = (props) => {
         <div className="form-add-review__wrapper">
           <fieldset className="form-add-review__rating">
             <h3 className="form-add-review__rating-title">Оцените товар:</h3>
-            {RATING.map((star) => (
-              <React.Fragment key={star}>
-                <input
-                  className=" visually-hidden "
-                  id={`star-${star}`}
-                  type="radio"
-                  name="rating"
-                  value={star}
-                  checked={currentReview.rating === star}
-                  onChange={(evt) =>
-                    setCurrentReview({
-                      ...currentReview,
-                      rating: Number(evt.target.value),
-                    })
-                  }
-                />
-                <label htmlFor={`star-${star}`} aria-label={`${star} зведа`}>
-                  <svg
-                    width="27"
-                    height="25"
-                    viewBox="0 0 27 25"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      className={
-                        star <= currentReview.rating
-                          ? `form-add-review__star-active`
-                          : ``
-                      }
-                      d="M13.5688 0L16.6151 9.52282H26.4734L18.4979 15.4082L21.5443 24.9311L13.5688 19.0456L5.59324 24.9311L8.63961 15.4082L0.664102 9.52282H10.5224L13.5688 0Z"
-                      fill="#BDBEC2"
-                      fillOpacity="0.7"
-                    />
-                  </svg>
-                </label>
-              </React.Fragment>
-            ))}
+            <div className="form-add-review__rating-wrapper">
+              {RATING.map((star) => (
+                <React.Fragment key={star}>
+                  <input
+                    className="visually-hidden "
+                    id={`star-${star}`}
+                    type="radio"
+                    name="rating"
+                    value={star}
+                    checked={currentReview.rating === star}
+                    onChange={(evt) =>
+                      setCurrentReview({
+                        ...currentReview,
+                        rating: Number(evt.target.value),
+                      })
+                    }
+                  />
+                  <label htmlFor={`star-${star}`} aria-label={`${star} зведа`}>
+                    <svg
+                      width="27"
+                      height="25"
+                      viewBox="0 0 27 25"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        className={
+                          star <= currentReview.rating
+                            ? `form-add-review__star-active`
+                            : ``
+                        }
+                        d="M13.5688 0L16.6151 9.52282H26.4734L18.4979 15.4082L21.5443 24.9311L13.5688 19.0456L5.59324 24.9311L8.63961 15.4082L0.664102 9.52282H10.5224L13.5688 0Z"
+                        fill="#BDBEC2"
+                        fillOpacity="0.7"
+                      />
+                    </svg>
+                  </label>
+                </React.Fragment>
+              ))}
+            </div>
           </fieldset>
           <div
             className={`form-add-review__required-wrapper ${

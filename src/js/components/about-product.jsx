@@ -11,35 +11,52 @@ const AboutProduct = (props) => {
 
   const getContentOnActiveTab = () => {
     switch (currentTab) {
-      case TABS_NAME[0]:
+      case TABS_NAME.CHARACTERISTICS:
         return <Characteristics />;
-      case TABS_NAME[1]:
+      case TABS_NAME.REVIEWS:
         return <Reviews />;
-      case TABS_NAME[2]:
+      case TABS_NAME.CONTACTS:
         return <Contacts />;
       default:
         return ``;
     }
   };
 
+  const getValueTab = () => {
+    switch (currentTab) {
+      case TABS_NAME.CHARACTERISTICS:
+        return `charactetistics`;
+      case TABS_NAME.REVIEWS:
+        return `reviews`;
+      case TABS_NAME.CONTACTS:
+        return `contacts`;
+      default:
+        return ``;
+    }
+  };
+
   return (
-    <div className="about-product">
-      <div className="about-product__tabs">
-        {TABS_NAME.map((tab, index) => (
-          <a
-            href="#"
-            className={`about-product__tab-item ${
-              currentTab === tab ? `about-product__tab-item--active` : ``
-            }`}
-            key={index}
-            onClick={onChangeTab}
-          >
-            {tab}
-          </a>
-        ))}
+    <React.Fragment>
+      <div className={`page-content__tabs-product tabs-product`}>
+        <div
+          className={`tabs-product__wrapper tabs-product__wrapper--${getValueTab()}`}
+        >
+          {Object.entries(TABS_NAME).map((tab, index) => (
+            <a
+              href="#"
+              className={`tabs-product__item ${
+                currentTab === tab[1] ? `tabs-product__item--active` : ``
+              }`}
+              key={index}
+              onClick={onChangeTab}
+            >
+              {tab[1]}
+            </a>
+          ))}
+        </div>
       </div>
-      {getContentOnActiveTab()}
-    </div>
+      <div className="about-product">{getContentOnActiveTab()}</div>
+    </React.Fragment>
   );
 };
 

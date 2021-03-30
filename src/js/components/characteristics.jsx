@@ -30,7 +30,7 @@ const Characteristics = () => {
           </tr>
           <tr className="characteristics__item">
             <th className="characteristics__parameter">
-              Макс. крутящий момент
+              Макс. крутящий момент, Нм / об/мин
             </th>
             <th className="characteristics__vatue">370/4500</th>
           </tr>

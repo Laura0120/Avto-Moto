@@ -1,24 +1,24 @@
 .about-product {
-  padding-left: 6px;
-  padding-right: 9px;
+  padding-right: 16px;
+  padding-left: 15px;
 }
 
-.about-product__tabs {
-  display: flex;
-  margin-bottom: 15px;
+@media (max-width: $not-desktop-width) {
+  .about-product {
+    width: 100%;
+  }
 }
 
-.about-product__tab-item {
-  width: 195px;
-  height: 50px;
-  @include font(20px, 27.24px);
-  text-decoration: none;
-  text-align: center;
-  padding-top: 10px;
-  border: 1px solid $button-border-color;
+@media (min-width: $tablet-width) {
+  .about-product {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+}
 
-  &--active {
-    background-color: $active-color;
-    color: white;
+@media (min-width: $desktop-width) {
+  .about-product {
+    padding-left: 6px;
+    padding-right: 9px;
   }
 }

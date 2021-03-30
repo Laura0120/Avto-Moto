@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 
-import { IMGES_ACTIVE_NEW_MODEL, IMGES_PREVIEW_NEW_MODEL } from '../const';
+import {
+  IMAGES_DESKTOP,
+  IMAGES_TABLET,
+  IMAGES_MOBILE,
+  IMAGES_PREVIEW_NEW_MODEL,
+} from '../const';
 
 const Slider = () => {
   const [indexImgActive, setIndexImg] = useState(0);
-  const [imgWebp, imgJpg] = IMGES_ACTIVE_NEW_MODEL[indexImgActive];
+  const [desktopWebp, desktopJpg] = IMAGES_DESKTOP[indexImgActive];
+  const [tabletWebp, tabletJpg] = IMAGES_TABLET[indexImgActive];
+  const [mobileWebr, mobileJpg] = IMAGES_MOBILE;
 
   const onScrollForward = () => {
     if (indexImgActive < 2) {
@@ -23,15 +30,23 @@ const Slider = () => {
         <picture>
           <source
             type="image/webp"
-            media="(min-width: 1024px)"
-            srcSet={imgWebp}
+            media="(min-width: 1223px)"
+            srcSet={desktopWebp}
           />
+          <source
+            type="image/webp"
+            media="(min-width: 768px)"
+            srcSet={tabletWebp}
+          />
+          <source type="image/webp" srcSet={mobileWebr} />
+          <source media="(min-width: 1223px)" srcSet={desktopJpg} />
+          <source media="(min-width: 768px)" srcSet={tabletJpg} />
           <img
-            src={imgJpg}
+            src={mobileJpg}
             loading="lazy"
             alt="Машина, фото спереди"
-            width="600"
-            height="375"
+            width="289"
+            height="180"
           />
         </picture>
       </div>
@@ -45,7 +60,7 @@ const Slider = () => {
           onClick={onScrollBack}
         ></button>
         <div className="slider__preview">
-          {IMGES_PREVIEW_NEW_MODEL.map((img, index) => (
+          {IMAGES_PREVIEW_NEW_MODEL.map((img, index) => (
             <img
               src={img}
               alt="фото машины"
