@@ -7,41 +7,77 @@
 .page-content,
 .page-footer__wrapper {
   display: flex;
-  max-width: $desktop-width;
+  width: $mobile-width;
   margin: 0 auto;
-  padding-right: 18.5px;
-  padding-left: 18.5px;
 }
 
 .page-header__wrapper {
+  position: relative;
   justify-content: space-between;
   align-items: center;
-  min-height: 84px;
-  padding-left: 24.5px;
+  min-height: 75px;
+  padding: 0 20px 0 10px;
 }
 
 .page-content {
-  padding-top: 74px;
-  padding-bottom: 131px;
-  flex-wrap: wrap;
+  padding: 20px 0 41px;
+  flex-direction: column;
 }
 
 .page-content__wrapper {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 16px 0 15px;
 }
 
 .page-footer__wrapper {
   align-items: center;
   min-height: 82px;
-  padding-left: 24.5px;
+  padding: 24px 16px 18px 12.5px;
 }
 
-@media (max-width: $content-wrapper-width) {
+@media (min-width: $tablet-width) {
+  .page-header__wrapper,
+  .page-content,
+  .page-footer__wrapper {
+    width: $tablet-width;
+  }
+
+  .page-header__wrapper {
+    padding: 0 18.5px 0 21px;
+  }
+
+  .page-content {
+    padding: 21px 18.5px 87px;
+  }
+
   .page-content__wrapper {
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    padding-left: 2px;
+  }
+
+  .page-footer__wrapper {
+    padding: 32px 18.5px 11px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .page-header__wrapper,
+  .page-content,
+  .page-footer__wrapper {
+    width: $desktop-width;
+  }
+
+  .page-header__wrapper {
+    min-height: 84px;
+    padding: 0 29.5px 0 24.5px;
+  }
+
+  .page-content {
+    padding: 74px 18.5px 131px 15.5px;
+  }
+
+  .page-footer__wrapper {
+    padding: 14px 18.5px 15px 26px;
   }
 }
 

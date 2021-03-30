@@ -14,15 +14,17 @@ const Offer = () => {
         <span className="offer__current-price">2 300 000 ₽</span>
         <span className="offer__old-price">2 400 000 ₽</span>
       </div>
-      <a
-        href="#"
-        className="offer__button offer__button--application button button--active"
-      >
-        оставить заявку
-      </a>
-      <a href="#" className="offer__button offer__button--credit button">
-        в кредит от 11 000 ₽
-      </a>
+      <div className="offer__wrapper">
+        <a
+          href="#"
+          className="offer__button offer__button--application button button--active"
+        >
+          оставить заявку
+        </a>
+        <a href="#" className="offer__button offer__button--credit button">
+          в кредит от 11 000 ₽
+        </a>
+      </div>
     </section>
   );
 };

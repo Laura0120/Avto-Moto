@@ -2,21 +2,21 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 90px;
-  width: 337px;
+  margin-bottom: 39px;
 }
 
 .offer__title {
-  margin: 0 0 21px;
+  margin: 0 0 15px;
 
   @include font(30px, 40.85px, bold);
 }
+
 .properties-list {
   display: flex;
   @include list-reset();
   height: 62px;
   padding-left: 8px;
-  margin-bottom: 38px;
+  margin-bottom: 30px;
 }
 
 .properties-list__item {
@@ -43,7 +43,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 37px;
+  margin-bottom: 39px;
 }
 
 .offer__current-price {
@@ -67,11 +67,63 @@
   }
 }
 
+.offer__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .offer__button {
   &--application {
-    margin-bottom: 17px;
+    margin-bottom: 15px;
+    margin-right: 20px;
   }
   &--credit {
     padding: 16px 34px;
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .offer {
+    margin-bottom: 30px;
+  }
+
+  .offer__price-tag {
+    margin-bottom: 31px;
+  }
+
+  .offer__button {
+    &--application {
+      margin-bottom: 0;
+      margin-right: 30px;
+    }
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .offer {
+    margin-bottom: 16px;
+  }
+
+  .offer__title {
+    margin: 0 0 21px;
+  }
+
+  .properties-list {
+    margin-bottom: 38px;
+  }
+
+  .offer__price-tag {
+    margin-bottom: 37px;
+  }
+
+  .offer__wrapper {
+    flex-direction: column;
+  }
+
+  .offer__button {
+    &--application {
+      margin-right: 20px;
+      margin-bottom: 15px;
+    }
   }
 }

@@ -11,32 +11,31 @@
 
 .form-add-review {
   position: relative;
-  top: calc(50% - (#{$form-height} / 2));
-  left: calc(50% - (#{$form-width} / 2));
+  top: calc(50% - (#{$form-mobile-height} / 2));
+  margin: 0 auto;
 
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 
-  max-width: 698px;
-  min-height: 415px;
-  padding: 30px 35px 35px 35px;
+  width: $mobile-width;
+  min-height: $form-mobile-height;
+  padding: 45px 16px 40px;
 
   background-color: $background-color;
   text-align: center;
 }
 
 .form-add-review__title {
-  margin: 0 0 24px;
+  margin: 0 0 38px;
   width: 100%;
   @include font(25px, 34px, bold);
 }
 
 .form-add-review__button-close {
   position: absolute;
-  top: 25px;
-  right: 25px;
-
+  top: 13px;
+  right: 19px;
   width: 20px;
   height: 20px;
 
@@ -70,34 +69,18 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  &:not(:nth-last-of-type(1)) {
-    margin-right: 27px;
-  }
 }
 
 .form-add-review__input {
-  width: 300px;
+  width: 288px;
   min-height: 50px;
   padding: 15px 25px;
   border: 1px solid $button-border-color;
-
-  &:not(:nth-last-of-type(1)) {
-    margin-bottom: 16px;
-  }
-}
-
-.form-add-review__rating {
-  display: flex;
-  border: none;
-  width: 300px;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
-  padding: 0;
+  margin-bottom: 16px;
 }
 
 .form-add-review__review-text {
-  width: 300px;
+  width: 288px;
   height: 118px;
   resize: none;
   padding: 15px 25px;
@@ -106,8 +89,25 @@
   border: 1px solid $button-border-color;
 }
 
+.form-add-review__rating {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  width: 170px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 18px auto 0;
+  padding: 0;
+}
+
+.form-add-review__rating-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .form-add-review__rating-title {
-  margin: 0;
+  margin: 0 0 5px;
   @include font(15px, 20px, bold);
 }
 
@@ -127,7 +127,7 @@
 
 .form-add-review__required-wrapper {
   position: relative;
-
+  order: -1;
   &::after {
     content: '*';
     position: absolute;
@@ -147,8 +147,67 @@
       left: 0;
     }
   }
+}
 
-  &:nth-of-type(1) {
-    margin-bottom: 16px;
+@media (min-width: $tablet-width) {
+  .form-add-review {
+    top: calc(50% - (#{$form-tablet-height} / 2));
+    width: $form-tablet-width;
+    min-height: $form-tablet-height;
+    padding: 30px 35px 35px;
+  }
+
+  .form-add-review__title {
+    margin: 0 0 24px;
+  }
+
+  .form-add-review__button-close {
+    top: 25px;
+    right: 25px;
+  }
+
+  .form-add-review__input {
+    width: 300px;
+
+    &:nth-last-of-type(1) {
+      margin-bottom: 0;
+    }
+  }
+
+  .form-add-review__wrapper:not(:nth-last-of-type(1)) {
+    margin-right: 27px;
+  }
+
+  .form-add-review__review-text {
+    width: 300px;
+  }
+
+  .form-add-review__required-wrapper {
+    order: 0;
+
+    &:nth-child(1) {
+      margin-bottom: 16px;
+    }
+  }
+
+  .form-add-review__rating {
+    flex-direction: row;
+    width: 300px;
+    margin: 10px 0 0;
+  }
+
+  .form-add-review__rating-wrapper {
+    display: flex;
+    width: 163px;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  .form-add-review__rating-title {
+    margin: 0;
+  }
+
+  .form-add-review__submit {
+    padding: 9px 29px;
   }
 }

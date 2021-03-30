@@ -1,4 +1,6 @@
 .reviews {
+  display: flex;
+  flex-direction: column;
   position: relative;
 }
 
@@ -7,57 +9,27 @@
   padding-bottom: 20px;
   max-width: 100%;
 }
-
 .reviews__button {
-  position: absolute;
-  z-index: 2;
-  right: 2px;
-  top: 18px;
+  width: fit-content;
+  margin: 6px 0 15px 50px;
 }
 
 .review__quote {
-  padding: 20px 0 9px;
+  padding: 13px 0 0;
   margin: 0;
   @include font(15px, 20px);
 }
 
 .review__author {
   display: block;
-  margin-bottom: 12px;
-  @include font(20px, 27px, bold);
+  font-weight: bold;
   font-style: normal;
 }
 
 .review__dignity,
-.review__limitations {
-  padding-left: 19px;
-  position: relative;
-  &:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 9px;
-    height: 21px;
-  }
-}
-
-.review__dignity {
-  &::before {
-    top: 6px;
-    background: url('/img/dignity-icon.svg') no-repeat;
-  }
-}
-.review__limitations {
-  &::before {
-    top: 10px;
-    background: url('/img/limitations-icon.svg') no-repeat;
-  }
-}
-.review__quote dl {
-  margin: 0 0 17px;
-}
-.review__quote dt {
-  font-weight: bold;
+.review__limitations,
+.review__text dt {
+  display: none;
 }
 
 .review__quote dd {
@@ -113,4 +85,68 @@
 
 .review__response {
   text-decoration: none;
+}
+
+@media (min-width: $tablet-width) {
+  .reviews__button {
+    margin: 0 0 15px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .review__dignity,
+  .review__limitations,
+  .review__text dt {
+    display: block;
+  }
+
+  .reviews__button {
+    position: absolute;
+    z-index: 2;
+    right: 2px;
+    top: 18px;
+  }
+  .review__quote {
+    padding: 20px 0 9px;
+  }
+
+  .review__author {
+    @include font(20px, 27px, bold);
+    margin-bottom: 12px;
+  }
+
+  .review__dignity,
+  .review__limitations {
+    padding-left: 19px;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 9px;
+      height: 21px;
+    }
+  }
+
+  .review__dignity {
+    &::before {
+      top: 6px;
+      background: url('/img/dignity-icon.svg') no-repeat;
+    }
+  }
+
+  .review__limitations {
+    &::before {
+      top: 10px;
+      background: url('/img/limitations-icon.svg') no-repeat;
+    }
+  }
+
+  .review__quote dl {
+    margin: 0 0 17px;
+  }
+
+  .review__quote dt {
+    font-weight: bold;
+  }
 }

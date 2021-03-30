@@ -114,9 +114,9 @@ const Reviews = () => {
                   <dt>Недостатки</dt>
                   <dd>{limitations}</dd>
                 </dl>
-                <dl>
+                <dl className="review__text">
                   <dt>Комментарий</dt>
-                  <dd className="review__text">{reviewText}</dd>
+                  <dd>{reviewText}</dd>
                 </dl>
               </blockquote>
               <div className="review__wrapper">
