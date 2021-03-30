@@ -4,9 +4,9 @@ export const MS_IN_ONE_DAY = MS_IN_ONE_HOUR * 24;
 export const NOT_DESKTOP_WIDTH = 1222;
 
 export const IMAGES_DESKTOP = [
-  ['/img/car-1.webp', '/img/car-1.jpg'],
-  ['/img/car-2.webp', '/img/car-2.jpg'],
-  ['/img/car-3.webp', '/img/car-3.jpg'],
+  ['/img/car-1-desctop.webp', '/img/car-1-desctop.jpg'],
+  ['/img/car-2-desctop.webp', '/img/car-2-desctop.jpg'],
+  ['/img/car-3-desctop.webp', '/img/car-3-desctop.jpg'],
 ];
 export const IMAGES_TABLET = [
   ['/img/car-1-tablet.webp', '/img/car-1-tablet.jpg'],
