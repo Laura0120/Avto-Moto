@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/Avto-Moto/static/css/main.3a25c3f4.chunk.css",
+    "main.js": "/Avto-Moto/static/js/main.505ac2a0.chunk.js",
+    "main.js.map": "/Avto-Moto/static/js/main.505ac2a0.chunk.js.map",
+    "runtime-main.js": "/Avto-Moto/static/js/runtime-main.d47e2c7d.js",
+    "runtime-main.js.map": "/Avto-Moto/static/js/runtime-main.d47e2c7d.js.map",
+    "static/js/2.ade4a267.chunk.js": "/Avto-Moto/static/js/2.ade4a267.chunk.js",
+    "static/js/2.ade4a267.chunk.js.map": "/Avto-Moto/static/js/2.ade4a267.chunk.js.map",
+    "index.html": "/Avto-Moto/index.html",
+    "static/css/main.3a25c3f4.chunk.css.map": "/Avto-Moto/static/css/main.3a25c3f4.chunk.css.map",
+    "static/js/2.ade4a267.chunk.js.LICENSE.txt": "/Avto-Moto/static/js/2.ade4a267.chunk.js.LICENSE.txt",
+    "static/media/style.scss": "/Avto-Moto/static/media/star-icon.ca28eb4a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d47e2c7d.js",
+    "static/js/2.ade4a267.chunk.js",
+    "static/css/main.3a25c3f4.chunk.css",
+    "static/js/main.505ac2a0.chunk.js"
+  ]
+}
