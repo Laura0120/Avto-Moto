@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import moment from 'moment';
-// import 'moment/locale/ru';
+
 
 import ModalAddReveiw from './modal-add-review';
 
@@ -11,6 +10,7 @@ import {
   MS_IN_ONE_DAY,
   MS_IN_ONE_MINUTE,
   MS_IN_ONE_HOUR,
+  MAIN_URL
 } from './../const';
 
 const Reviews = () => {
@@ -34,17 +34,6 @@ const Reviews = () => {
   const disablePageScrolling = () => {
     document.body.classList.add('no-scrolling');
   };
-
-  // const getDateForReview = (date) => {
-  //   moment.locale('ru');
-  //   const dateObj = moment(date);
-
-  //   const reviewDate =
-  //     moment().utc().diff(dateObj, `days`) >= 2
-  //       ? dateObj.format(`YYYY/MM/DD hh:mm`)
-  //       : dateObj.fromNow();
-  //   return reviewDate;
-  // };
 
   const getDateReview = (date) => {
     const elapsedTime = new Date() - new Date(date);
@@ -139,7 +128,7 @@ const Reviews = () => {
               </div>
               <div className="review__wrapper">
                 <span className="review__time">{getDateReview(time)}</span>
-                <a href="#" className="review__response">
+                <a href={MAIN_URL} className="review__response">
                   Ответить
                 </a>
               </div>

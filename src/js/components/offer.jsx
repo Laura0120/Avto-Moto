@@ -1,4 +1,5 @@
 import React from 'react';
+import { MAIN_URL } from '../const';
 
 const Offer = () => {
   return (
@@ -16,12 +17,12 @@ const Offer = () => {
       </div>
       <div className="offer__wrapper">
         <a
-          href="#"
+          href={MAIN_URL}
           className="offer__button offer__button--application button button--active"
         >
           оставить заявку
         </a>
-        <a href="#" className="offer__button offer__button--credit button">
+        <a href={MAIN_URL} className="offer__button offer__button--credit button">
           в кредит от 11 000 ₽
         </a>
       </div>

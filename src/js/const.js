@@ -2,7 +2,7 @@ export const MS_IN_ONE_MINUTE = 1000 * 60;
 export const MS_IN_ONE_HOUR = MS_IN_ONE_MINUTE * 60;
 export const MS_IN_ONE_DAY = MS_IN_ONE_HOUR * 24;
 export const NOT_DESKTOP_WIDTH = 1222;
-
+export const MAIN_URL = `${process.env.PUBLIC_URL}`;
 export const IMAGES_DESKTOP = [
   ['/img/car-1-desctop.webp', '/img/car-1-desctop.jpg'],
   ['/img/car-2-desctop.webp', '/img/car-2-desctop.jpg'],

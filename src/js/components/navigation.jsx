@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { MAIN_URL } from '../const';
 
 const Navigation = (props) => {
   const { navList, modifier, isOpen, onChangeToggle, isDesktop } = props;
@@ -26,7 +27,7 @@ const Navigation = (props) => {
           <ul className="navigation__list">
             {navList.map((item, index) => (
               <li className="navigation__item" key={index}>
-                <a href="#">{item}</a>
+                <a href={MAIN_URL}>{item}</a>
               </li>
             ))}
           </ul>

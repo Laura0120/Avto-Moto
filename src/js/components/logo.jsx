@@ -1,9 +1,10 @@
 import React from 'react';
+import { MAIN_URL } from '../const';
 
 const Logo = () => {
   return (
     <div className="logo">
-      <a className="logo__link" aria-label="логотип" href="/">
+      <a className="logo__link" aria-label="логотип" href={MAIN_URL}>
         <svg
           width="55"
           height="55"

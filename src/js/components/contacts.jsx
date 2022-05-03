@@ -1,4 +1,5 @@
 import React from 'react';
+import { MAIN_URL } from '../const';
 
 const Contacts = () => {
   return (
@@ -24,10 +25,10 @@ const Contacts = () => {
       </div>
       <div className="contacts__map-wrapper">
         <picture>
-          <source media="(min-width: 1223px)" srcSet={'/img/map.png'} />
-          <source media="(min-width: 768px)" srcSet={'/img/map-tablet.png'} />
+          <source media="(min-width: 1223px)" srcSet={`${MAIN_URL}/img/map.png`} />
+          <source media="(min-width: 768px)" srcSet={`${MAIN_URL}/img/map-tablet.png`}/>
           <img
-            src={'/img/map-mobile.png'}
+            src={`${MAIN_URL}/img/map-mobile.png`}
             loading="lazy"
             alt="мы на карте"
             width="288"
